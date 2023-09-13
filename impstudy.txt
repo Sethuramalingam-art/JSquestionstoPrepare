@@ -4,3 +4,12 @@ service worke in js and react
 ssh and ssl 
 react machine coding 
 nodejs child process
+
+
+Referential Equity - Object.is()The Object.is() algorithm determines whether two values are the same if:
+
+Both values are undefined or null.
+Both values are either true or false.
+Both values are Strings having the same characters, length, and order.
+Both values are Numbers with the same value or NaN.
+Both values are Objects that point to one memory location.We have seen that function Overloading is not supported in JavaScript,
