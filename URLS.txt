@@ -1,0 +1,9 @@
+https://www.youtube.com/watch?v=cBsB7hhOzQI
+
+https://www.youtube.com/watch?v=vxggZffOqek
+
+https://www.youtube.com/watch?v=HoKVX7qAYQQ
+
+https://www.cronj.com/blog/redux-middleware-a-perfect-beginners-guide/#:~:text=Redux%20Thunk%20is%20recommended%20middleware,be%20access%20to%20the%20store.
+
+https://www.serverless.com/blog/serverless-express-rest-api/

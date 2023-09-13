@@ -1,0 +1,12 @@
+
+default 
+
+authorization
+session and 
+platform
+
+
+
+application checklist - A1 - it have borrower details
+A2- not there
+

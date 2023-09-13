@@ -1,0 +1,543 @@
+loans eligible success
+
+POST: http://lms-wiremock-test.mayabank.co:8080/__admin/mappings
+
+
+request body 
+
+{
+    "request": {
+        "method": "POST",
+        "url": "/v1/applications/eligible",
+        "bodyPatterns": [
+            {
+                "equalToJson": "{ \"productKey\" : \"MAYA_FLEXI_ENTERPRISE_LOAN\"}"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": {
+            "id": "f79f79c3-4cdd-4436-9550-5f2f1f23572a",
+            "customerId": "b7935bdc-6332-4e5a-84de-d154880af5b1",
+            "loanOfferId": "b7935bdc-6332-4e5a-84de-d154880af5b2",
+            "expiresOn": "2023-12-20T04:32:00.899Z",
+            "creditScore": "551",
+            "status": "COMPLETED",
+            "risk": {
+                "level": "LOW"
+            },
+            "products": [
+                {
+                    "key": "MAYA_FLEXI_ENTERPRISE_LOAN",
+                    "creditArrangement": {
+                        "duration": {
+                            "unit": "YEAR",
+                            "value": 1
+                        },
+                        "limit": {
+                            "currency": "PHP",
+                            "value": 2000000
+                        }
+                    },
+                    "terms": [
+                        {
+                            "currency": "PHP",
+                            "minLoanAmount": 0,
+                            "maxLoanAmount": 50000,
+                            "tenors": [
+                                {
+                                    "loanTermCount": 1,
+                                    "loanTermUnit": "MONTHS",
+                                    "loanInstallmentCount": 6,
+                                    "fees": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0.03,
+                                            "type": "SERVICE_FEE"
+                                        }
+                                    ],
+                                    "taxes": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "DST"
+                                        }
+                                    ],
+                                    "interests": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "SIMPLE_INTEREST"
+                                        }
+                                    ],
+                                    "penalties": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "NON_PAYMENT"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "loanTermCount": 1,
+                                    "loanTermUnit": "MONTHS",
+                                    "loanInstallmentCount": 12,
+                                    "fees": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0.03,
+                                            "type": "SERVICE_FEE"
+                                        }
+                                    ],
+                                    "taxes": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "DST"
+                                        }
+                                    ],
+                                    "interests": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "SIMPLE_INTEREST"
+                                        }
+                                    ],
+                                    "penalties": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "NON_PAYMENT"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "loanTermCount": 1,
+                                    "loanTermUnit": "MONTHS",
+                                    "loanInstallmentCount": 18,
+                                    "fees": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0.03,
+                                            "type": "SERVICE_FEE"
+                                        }
+                                    ],
+                                    "taxes": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "DST"
+                                        }
+                                    ],
+                                    "interests": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "SIMPLE_INTEREST"
+                                        }
+                                    ],
+                                    "penalties": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "NON_PAYMENT"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "loanTermCount": 1,
+                                    "loanTermUnit": "MONTHS",
+                                    "loanInstallmentCount": 24,
+                                    "fees": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0.03,
+                                            "type": "SERVICE_FEE"
+                                        }
+                                    ],
+                                    "taxes": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "DST"
+                                        }
+                                    ],
+                                    "interests": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "SIMPLE_INTEREST"
+                                        }
+                                    ],
+                                    "penalties": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "NON_PAYMENT"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "currency": "PHP",
+                            "minLoanAmount": 50001,
+                            "maxLoanAmount": 100000,
+                            "tenors": [
+                                {
+                                    "loanTermCount": 1,
+                                    "loanTermUnit": "MONTHS",
+                                    "loanInstallmentCount": 6,
+                                    "fees": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0.03,
+                                            "type": "SERVICE_FEE"
+                                        }
+                                    ],
+                                    "taxes": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "DST"
+                                        }
+                                    ],
+                                    "interests": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "SIMPLE_INTEREST"
+                                        }
+                                    ],
+                                    "penalties": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "NON_PAYMENT"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "loanTermCount": 1,
+                                    "loanTermUnit": "MONTHS",
+                                    "loanInstallmentCount": 12,
+                                    "fees": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0.03,
+                                            "type": "SERVICE_FEE"
+                                        }
+                                    ],
+                                    "taxes": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "DST"
+                                        }
+                                    ],
+                                    "interests": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "SIMPLE_INTEREST"
+                                        }
+                                    ],
+                                    "penalties": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "NON_PAYMENT"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "loanTermCount": 1,
+                                    "loanTermUnit": "MONTHS",
+                                    "loanInstallmentCount": 18,
+                                    "fees": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0.03,
+                                            "type": "SERVICE_FEE"
+                                        }
+                                    ],
+                                    "taxes": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "DST"
+                                        }
+                                    ],
+                                    "interests": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "SIMPLE_INTEREST"
+                                        }
+                                    ],
+                                    "penalties": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "NON_PAYMENT"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "loanTermCount": 1,
+                                    "loanTermUnit": "MONTHS",
+                                    "loanInstallmentCount": 24,
+                                    "fees": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0.03,
+                                            "type": "SERVICE_FEE"
+                                        }
+                                    ],
+                                    "taxes": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "DST"
+                                        }
+                                    ],
+                                    "interests": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "SIMPLE_INTEREST"
+                                        }
+                                    ],
+                                    "penalties": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "NON_PAYMENT"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "loanTermCount": 1,
+                                    "loanTermUnit": "MONTHS",
+                                    "loanInstallmentCount": 36,
+                                    "fees": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0.03,
+                                            "type": "SERVICE_FEE"
+                                        }
+                                    ],
+                                    "taxes": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "DST"
+                                        }
+                                    ],
+                                    "interests": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "SIMPLE_INTEREST"
+                                        }
+                                    ],
+                                    "penalties": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "NON_PAYMENT"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "loanTermCount": 1,
+                                    "loanTermUnit": "MONTHS",
+                                    "loanInstallmentCount": 48,
+                                    "fees": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0.03,
+                                            "type": "SERVICE_FEE"
+                                        }
+                                    ],
+                                    "taxes": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "DST"
+                                        }
+                                    ],
+                                    "interests": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "SIMPLE_INTEREST"
+                                        }
+                                    ],
+                                    "penalties": [
+                                        {
+                                            "amount": 0,
+                                            "computationStyle": "RATE_ONLY",
+                                            "rate": 0,
+                                            "type": "NON_PAYMENT"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+
+
+loans eligible failure
+
+POST : http://lms-wiremock-test.mayabank.co:8080/__admin/mappings
+
+{
+ "request": {
+        "url": "/v1/applications/eligible",
+        "method": "POST",
+        "bodyPatterns": [
+            {
+                "equalToJson": "{ \"productKey\" : \"\"}"
+            }
+        ]
+    },
+    "response": {
+        "status": 400,
+        "jsonBody": {
+            "code": "APPGW00117",
+            "msg": "Invalid product key.",
+            "spiel": "Invalid request parameters. Invalid product key.",
+            "details": null
+        },
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+  }
+
+
+Get application checklist get
+
+POST: http://lms-wiremock-test.mayabank.co:8080/__admin/mappings
+
+{
+    "request": {
+        "method": "GET",
+        "urlPathPattern": "/v1/applications/checklist",
+        "queryParameters": {
+           "personId": {
+              "matches": ".*"
+           },
+           "organizationId": {
+              "matches": ".*"
+           },
+           "productKey": {
+              "matches": ".*"
+           }
+        }
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": {
+            "id": "860eaa2b-0126-431b-b642-9bc9a916b93f",
+            "borrowerDetails": {
+                "organizationDetails": {
+                    "type": "SMALL_MERCHANT"
+                },
+                "name": {
+                    "firstName": "Demetria",
+                    "lastName": "Howell",
+                    "middleName": "Cruz"
+                },
+                "address": [
+                    {
+                        "type": "PERMANENT",
+                        "line1": "6F Launchpad Bldg",
+                        "line2": "8F Launchpad Bldg",
+                        "locality": "Brgy. Highway Hills",
+                        "city": "Metro Manila",
+                        "province": "Metro Manila",
+                        "region": "NCR",
+                        "country": "PH",
+                        "zipCode": "1234",
+                        "description": "House Address",
+                        "ownership": "OWNED_UNENCUMBERED",
+                        "yearMovedIn": "2008"
+                    }
+                ],
+                "gender": {
+                    "value": "FEMALE"
+                },
+                "maritalStatus": {
+                    "value": "MARRIED",
+                    "spouseFirstName": "Mario",
+                    "spouseMiddleName": "Claro",
+                    "spouseLastName": "Dela Cruz",
+                    "spouseDateOfBirth": "01-01-2000"
+                },
+                "birthDetails": {
+                    "birthDate": "01-01-2000",
+                    "city": "Pasig",
+                    "nationality": "PH",
+                    "country": "PH",
+                    "mothersMaidenFirstName": "Lolita",
+                    "mothersMaidenLastName": "Bilbao",
+                    "mothersMaidenMiddleName": "Ramoran"
+                }
+            }
+        }
+    }
+}
+

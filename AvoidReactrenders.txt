@@ -1,0 +1,183 @@
+Component re-rendering is expensive and can affect performance. This article explains simple methods to avoid unnecessary component re-renders.
+
+1. Overview
+React components re-render when their state or props change. 
+When a react component re-renders, all its child components also re-render. 
+That is a chain reaction that affects components entire child components tree. 
+Most of the time, these re-renders are unnecessary and negatively affect the component performance.
+
+2. Example of unnecessary component re-render
+In the below-listed example, we update the parent components state by setting showParagraph to true. 
+As a result, React updates the <Form/> component, and the entire child component tree that belongs to Form. 
+Note that the Form component neither accepts any properties nor updates any state variables. 
+Therefore, its re-render is not necessary.
+
+App.tsx
+
+import { useCallback, useState } from 'react';
+import {Form} from './components/Form';
+import {Button} from './components/Button';
+
+export const App = () => {
+  const [showParagraph, setShowParagraph] = useState(false)
+  const toggleParagraph = () => {
+    setShowParagraph((prev) => !prev)
+  }
+  console.log("App Re-rendered")
+  return (
+    <>
+    {showParagraph && <p>Information</p>}
+    <Form/>
+    <Button onClick={toggleParagraph}/>
+    </>
+  );
+}
+export default App;
+
+App.tsx contains two child components, Button and Form. 
+This button toggles a paragraph based on the showParagraph variable value. 
+When we update showParagraph by clicking the button, Rect updates the entire component tree under App.tsx. 
+Note the console logs in every component to detect re-renders.
+
+Form.tsx and Input.tsx
+Note that <Form/> has no dependency on App.js. 
+But the Form component re-renders whenever the showParagraph changes. 
+Hence, the Input component also re-renders.
+
+import {Input} from "./Input"
+
+export const Form = () => {
+    console.log("Form Re-rendered")
+    return (
+        <>
+            <Input name="name"/>
+            <Input name="age"/>
+        </>
+    )
+}
+
+interface InputProps {
+    name: string
+}
+
+export const Input = (props: InputProps) => {
+    console.log(`Input ${props.name} Re-rendered`)
+return(
+    <div><input name={props.name} /></div>
+  )
+}
+
+Button.tsx
+The button component toggles the showParagraph. 
+The Button component also re-renders when the showParagraph changes, although it is unnecessary.
+
+interface ButtonProps {
+    onClick: () => void
+}
+
+export const Button = (props: ButtonProps) =>{
+  console.log("Button Re-rendered")
+return(
+        <div>
+          <button type="button" onClick={() => props.onClick()}>Toggle</button>
+        </div>
+      )
+}
+
+
+console.log;
+App Re-rendered
+Form Re-rendered
+Input name Re-rendered
+Input age Re-rendered
+Button Re-rendered
+
+
+==========================================================================
+
+How to avoid re-renders
+We can avoid these re-renders by following two simple steps.
+
+3.1 Export the component as a React.memo
+We can avoid re-renders by simply exporting the component using React.memo. 
+React.memo tells React to compare the Component props with the previous props and only re-render if they are different.
+
+import React from "react"
+import Input from "./Input"
+
+const Form = () => {
+    console.log("Form Re-rendered")
+    return (
+        <>
+            <Input name="name"/>
+            <Input name="age"/>
+        </>
+    )
+}
+export default React.memo(Form)
+
+
+import React from "react"
+
+interface ButtonProps {
+    onClick: () => void
+}
+
+const Button = (props: ButtonProps) =>{
+  console.log("Button Re-rendered")
+return(
+        <div>
+          <button type="button" onClick={() => props.onClick()}>Toggle</button>
+        </div>
+      )
+}
+export default React.memo(Button)
+
+
+3.2 How about function references received as props?
+The React.memo will take care of any prop changes and handle re-renders efficiently. 
+But you will notice that doesn't solve the issue for the Button component. 
+That's because the Button receives a function reference as a prop. 
+This referencing function is re-created every time the App.tsx is re-rendered, so as the function reference. 
+Therefore, the current prop and previous prop are never equal. props.onClick === prev.props.onClick is never true. 
+Because they are different references.
+
+3.3 Use useCallback to memoize the function
+The useCallback hook memoizes the function it wraps and returns the same reference between re-renders.
+Meaning, that React stores the toggleParagraph function in the memory, 
+and returns the same reference every time the App.tsx is re-rendered.
+
+import { useCallback, useState } from 'react';
+import Form from './components/Form';
+import Button from './components/Button';
+
+export const App = () => {
+  const [showParagraph, setShowParagraph] = useState(false)
+  const toggleParagraph = useCallback(() => {
+    setShowParagraph((prev) => !prev)
+  },[])
+  console.log("App Re-rendered")
+  return (
+    <>
+    {showParagraph && <p>Information</p>}
+    <Form/>
+    <Button onClick={toggleParagraph}/>
+    </>
+    );
+}
+export default App;
+useCallback accepts two arguments.
+
+Function to memoize
+Dependency array
+If any dependency argument is changed, React re-creates the function. 
+An empty array means React will only create the function once when the App.tsx is initially created.
+
+. Should I always use useCallback and React.memo?
+useCallback and React.memo uses resources.
+
+When we use useCallback, React saves the function in the memory, and calculates if re-creation is required based on the dependency array.
+When we use React.memo, React compares components' properties with previous properties to determine whether a re-render is required.
+Therefore, these optimizations come at a cost. Therefore React.memo and useCallback should only be used to avoid re-renders that impact the application performance.
+
+

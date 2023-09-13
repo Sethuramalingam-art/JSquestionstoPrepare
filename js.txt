@@ -1,0 +1,28 @@
+architeture project - why monothlic or microfrotend
+render methods - build tools unit testing SSR/ CSR
+hrml async defer 
+
+dom manipulation
+jsx
+
+lexical scoping
+
+event loop
+
+
+
+css pre preceesror post processor
+
+mobile first 
+
+gird flex 
+
+css framwork
+
+sematics 
+
+
+accesibility, light house ,
+
+
+
